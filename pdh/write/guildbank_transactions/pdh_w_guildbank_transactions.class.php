@@ -26,7 +26,7 @@ if (!defined('EQDKP_INC')){
 if (!class_exists('pdh_w_guildbank_transactions')){
 	class pdh_w_guildbank_transactions extends pdh_w_generic {
 
-		public function add($intID, $intBanker, $intChar, $intItem, $intDKP, $intValue, $strSubject, $intType=0){
+		public function add($intID, $intBanker, $intChar, $intItem, $intDKP, $intValue, $strSubject, $intQuantity=0, $intType=0){
 			$resQuery = $this->db->prepare("INSERT INTO __guildbank_transactions :p")->set(array(
 				'ta_banker'		=> $intBanker,
 				'ta_type'		=> $intType,
@@ -36,6 +36,7 @@ if (!class_exists('pdh_w_guildbank_transactions')){
 				'ta_value'		=> $intValue,
 				'ta_subject'	=> $strSubject,
 				'ta_date'		=> $this->time->time,
+				'ta_quantity'	=> $intQuantity,
 			))->execute();
 			$this->pdh->enqueue_hook('guildbank_items_update');
 			if ($resQuery) return $resQuery->insertId;;

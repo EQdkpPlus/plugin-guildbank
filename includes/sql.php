@@ -60,6 +60,7 @@ $guildbankSQL = array(
 				ta_item mediumint(8) default 0,
 				ta_value BIGINT(20) default 0,
 				ta_dkp float(10,2) DEFAULT 0,
+				ta_quantity mediumint(8) default 0,
 				ta_date int(11) default NULL,
 				ta_subject varchar(255) default NULL,
 				PRIMARY KEY  (ta_id)

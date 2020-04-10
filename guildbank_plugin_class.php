@@ -25,7 +25,7 @@ if (!defined('EQDKP_INC')){
 
 class guildbank extends plugin_generic {
 	public $vstatus		= 'Stable';
-	public $version		= '2.3.4';
+	public $version		= '2.3.5';
 	public $copyright 	= 'Wallenium';
 
 	protected static $apiLevel = 23;

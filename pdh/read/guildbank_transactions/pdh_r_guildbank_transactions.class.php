@@ -48,6 +48,7 @@ if (!class_exists('pdh_r_guildbank_transactions')){
 			'gb_tbanker'	=> array('banker',		array('%trans_id%'), array()),
 			'gb_tdkp'		=> array('dkp',			array('%trans_id%'), array()),
 			'gb_tvalue'		=> array('value',		array('%trans_id%'), array()),
+			'gb_tquantity'	=> array('quantity',	array('%trans_id%'), array()),
 			'gb_tedit'		=> array('edit',		array('%trans_id%'), array()),
 		);
 
@@ -90,6 +91,7 @@ if (!class_exists('pdh_r_guildbank_transactions')){
 						'value'			=> (int)$row['ta_value'],
 						'subject'		=> $row['ta_subject'],
 						'date'			=> (int)$row['ta_date'],
+						'quantity'		=> (int)$row['ta_quantity'],
 					);
 
 					$this->bankertransactions[(int)$row['ta_banker']][(int)$row['ta_id']] = (int)$row['ta_id'];
@@ -161,6 +163,10 @@ if (!class_exists('pdh_r_guildbank_transactions')){
 				return (isset($this->data[$id]) && $this->data[$id]['value'] > 0) ? $this->data[$id]['value'] : 0;
 			}
 			return $this->money->fields($this->data[$id]['value']);
+		}
+
+		public function get_quantity($id){
+			return (isset($this->data[$id]) && $this->data[$id]['quantity'] > 0) ? $this->data[$id]['quantity'] : '--';
 		}
 
 		public function get_itemvalue($itemid){

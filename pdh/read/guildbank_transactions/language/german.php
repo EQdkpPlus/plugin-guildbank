@@ -33,6 +33,7 @@ $module_lang = array(
 	'value'				=> 'Wert',
 	'dkp'				=> 'DKP',
 	'edit'				=> '',
+	'quantity'			=> 'Menge',
 );
 
 $preset_lang = array(
@@ -43,4 +44,5 @@ $preset_lang = array(
 	'gb_tbanker'		=> 'Bankier',
 	'gb_tvalue'			=> 'Wert',
 	'gb_tdkp'			=> 'DKP',
+	'gb_tquantity'		=> 'Menge',
 );

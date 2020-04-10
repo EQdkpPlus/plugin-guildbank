@@ -56,13 +56,14 @@ $systems_guildbank = array(
 			'table_sort_dir'		=> 'desc',
 			'table_sort_col'		=> 0,
 			'table_presets'			=> array(
-				array('name' => 'gb_tdate',		'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
-				array('name' => 'gb_tsubject',	'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
-				array('name' => 'gb_titem',		'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
-				array('name' => 'gb_tbuyer',	'sort' => true,		'th_add' => 'align="center width="50px"',	'td_add' => ''),
-				array('name' => 'gb_tbanker',	'sort' => true,		'th_add' => 'align="center width="200px"',	'td_add' => ''),
-				array('name' => 'gb_tvalue',	'sort' => true,		'th_add' => 'align="center"',				'td_add' => ''),
-				array('name' => 'gb_tdkp',		'sort' => true,		'th_add' => 'align="center"',				'td_add' => '')
+				array('name' => 'gb_tdate',			'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
+				array('name' => 'gb_tsubject',		'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
+				array('name' => 'gb_tquantity',		'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
+				array('name' => 'gb_titem',			'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
+				array('name' => 'gb_tbuyer',		'sort' => true,		'th_add' => 'align="center width="50px"',	'td_add' => ''),
+				array('name' => 'gb_tbanker',		'sort' => true,		'th_add' => 'align="center width="200px"',	'td_add' => ''),
+				array('name' => 'gb_tvalue',		'sort' => true,		'th_add' => 'align="center"',				'td_add' => ''),
+				array('name' => 'gb_tdkp',			'sort' => true,		'th_add' => 'align="center"',				'td_add' => '')
 			)
 		),
 		'hptt_guildbank_auctions' => array(
@@ -140,6 +141,7 @@ $systems_guildbank = array(
 				array('name' => 'gb_tedit',		'sort' => false,	'th_add' => 'align="center width="40px"',	'td_add' => ''),
 				array('name' => 'gb_tdate',		'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
 				array('name' => 'gb_tsubject',	'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
+				array('name' => 'gb_tquantity',	'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
 				array('name' => 'gb_titem',		'sort' => true,		'th_add' => 'align="center width="100%"',	'td_add' => ''),
 				array('name' => 'gb_tbuyer',	'sort' => true,		'th_add' => 'align="center width="50px"',	'td_add' => ''),
 				array('name' => 'gb_tbanker',	'sort' => true,		'th_add' => 'align="center width="200px"',	'td_add' => ''),
