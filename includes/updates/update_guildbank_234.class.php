@@ -52,7 +52,7 @@ if (!class_exists('update_guildbank_234')){
 					5 => 'Add a column',
 				),
 				'german' => array(
-					'update_guildbank_200' => 'Guild Banker 2.3.4 Update Paket',
+					'update_guildbank_234' => 'Guild Banker 2.3.4 Update Paket',
 					// SQL
 						1 => 'Ändere das Spaltenformat',
 						2 => 'Ändere das Spaltenformat',
