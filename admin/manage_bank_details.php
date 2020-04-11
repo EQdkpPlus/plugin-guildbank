@@ -93,7 +93,7 @@ class Manage_BankDetails extends page_generic {
 			// add the transaction
 			$retu		= $this->pdh->put('guildbank_transactions', 'add', array(
 				//$intID, $intBanker, $intChar, $intItem, $intDKP, $intValue, $strSubject
-				$this->in->get('transaction', 0), $this->in->get('banker', 0), $buyer, $item, $dkp, $money, 'gb_item_payout'
+				$this->in->get('transaction', 0), $this->in->get('banker', 0), $buyer, $item, $dkp, $money, 'gb_item_payout', $amount
 			));
 
 			// reduce amount of items
