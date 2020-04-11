@@ -106,7 +106,7 @@ class Manage_Banker extends page_generic {
 				'ID'			=> $id,
 				'NAME'			=> $name,
 				'DR_BANKCHAR'	=> (new hdropdown('bankers['.$key.'][bankchar]', array('options' => $bankchars, 'value' => $this->pdh->get('guildbank_banker', 'bankchar', array($id, true)), 'id' => 'bankchar'.$key)))->output(),
-				'MONEY'			=> $this->money->editfields($this->pdh->get('guildbank_transactions', 'money_summ', array($id)), 'bankers['.$key.'][money_{ID}]'),
+				'MONEY'			=> $this->money->editfields($this->pdh->get('guildbank_transactions', 'money_summ', array($id)), 'bankers['.$key.'][money_{ID}]', false, false, true),
 				'NOTE'			=> $this->pdh->get('guildbank_banker', 'note', array($id)),
 			));
 			$key++;
@@ -119,7 +119,7 @@ class Manage_Banker extends page_generic {
 			'ID'			=> $new_id,
 			'KEY'			=> $key,
 			'DR_BANKCHAR'	=> (new hdropdown('bankers['.$key.'][bankchar]', array('options' => $bankchars, 'id' => 'bankchar'.$key)))->output(),
-			'MONEY'			=> $this->money->editfields(0, 'bankers['.$key.'][money_{ID}]'),
+			'MONEY'			=> $this->money->editfields(0, 'bankers['.$key.'][money_{ID}]', false, false, true),
 		));
 
 		$this->core->set_vars(array(

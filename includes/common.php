@@ -19,8 +19,7 @@
  *	along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-if(!defined('EQDKP_INC'))
-{
+if(!defined('EQDKP_INC')){
 	header('HTTP/1.0 Not Found'); exit;
 }
 
@@ -29,3 +28,4 @@ if (!registry::register('plugin_manager')->check('guildbank', PLUGIN_INSTALLED) 
 	message_die(registry::register('user')->lang('guildbank_not_installed'));
 }
 require_once($eqdkp_root_path.'plugins/guildbank/includes/gb_money.class.php');
+registry::register('template')->css_file($eqdkp_root_path.'plugins/guildbank/templates/base_template/guildbank.css');

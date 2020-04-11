@@ -1,0 +1,29 @@
+.input-group{
+    display: table;
+    border-collapse: collapse;
+    width:100%;
+    margin: 4px 6px;
+}
+.input-group-inline {
+    display: inline-table;
+    border-collapse: collapse;
+    margin: 0 12px;
+}
+.input-group > span, .input-group-inline > span{
+    display: table-cell;
+    border: 1px solid #ddd;
+    vertical-align: middle;  /* needed for Safari */
+}
+.input-group-icon{
+    background:#eee;
+    color: #777;
+    padding: 0 12px;
+    width: 20px;
+}
+.input-group input, .input-group-inline input{
+    border: 0;
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 0 !important;
+}
