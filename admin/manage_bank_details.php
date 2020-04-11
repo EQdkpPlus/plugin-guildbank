@@ -295,7 +295,8 @@ class Manage_BankDetails extends page_generic {
 			$bankerID		= $this->in->get('g', 0);
 			$edit_charID	= 0;
 		}
-		$money			= $this->pdh->get('guildbank_transactions', 'money_summ', array($bankerID));
+		//$money			= $this->pdh->get('guildbank_transactions', 'money_summ', array($bankerID));
+		$money 				= 0;
 		
 		$this->tpl->assign_vars(array(
 			'MONEY'			=> $this->money->editfields($money),
