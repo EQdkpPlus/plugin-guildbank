@@ -125,7 +125,7 @@ if (!class_exists('pdh_w_guildbank_transactions')){
 			}
 		}
 
-		public function update($intID, $intBanker, $intChar, $intItem, $intDKP, $intValue, $strSubject, $intType=0){
+		public function update($intID, $intBanker, $intChar, $intItem, $intDKP, $intValue, $strSubject, $intQuantity=0, $intType=0){
 			$resQuery = $this->db->prepare("UPDATE __guildbank_transactions :p WHERE ta_id=?")->set(array(
 				'ta_banker'		=> $intBanker,
 				'ta_type'		=> $intType,
@@ -135,6 +135,7 @@ if (!class_exists('pdh_w_guildbank_transactions')){
 				'ta_value'		=> $intValue,
 				'ta_subject'	=> $strSubject,
 				'ta_date'		=> $this->time->time,
+				'ta_quantity'	=> $intQuantity,
 			))->execute($intID);
 			$this->pdh->enqueue_hook('guildbank_items_update');
 			if ($resQuery) return $intID;
@@ -158,10 +159,11 @@ if (!class_exists('pdh_w_guildbank_transactions')){
 			return false;
 		}
 
-		public function update_itemtransaction($intBanker, $intValue, $intDKP){
+		public function update_itemtransaction($intBanker, $intValue, $intDKP, $intQuantity){
 			$resQuery = $this->db->prepare("UPDATE __guildbank_transactions :p WHERE ta_item=?")->set(array(
 				'ta_dkp'		=> $intDKP,
 				'ta_value'		=> $intValue,
+				'ta_quantity'	=> $intQuantity,
 			))->execute($intBanker);
 			$this->pdh->enqueue_hook('guildbank_items_update');
 			if ($resQuery) return $intBanker;

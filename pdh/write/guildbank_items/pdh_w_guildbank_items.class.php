@@ -56,7 +56,7 @@ if (!class_exists('pdh_w_guildbank_items')){
 				'item_sellable'		=> $intSellable,
 				'item_multidkppool'	=> $intPool,
 			))->execute($intID);
-			$this->pdh->put('guildbank_transactions', 'update_itemtransaction',	array($intID, $intMoney, $intDKP));
+			$this->pdh->put('guildbank_transactions', 'update_itemtransaction',	array($intID, $intMoney, $intDKP, $intAmount));
 			$this->pdh->enqueue_hook('guildbank_items_update');
 			if ($resQuery) return $intID;
 			return false;
