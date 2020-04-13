@@ -113,6 +113,23 @@ if (!class_exists('pdh_r_guildbank_items')){
 			return array();
 		}
 
+		public function get_check_item_avaialbility($bankerID, $name){
+			if (is_array($this->data)){
+				$ids		= array_keys($this->data);
+
+				// get the current item if available
+				foreach($ids as $key => $id) {
+					$item_name		= $this->get_name($id);
+					$item_banker	= $this->get_banker($id);
+
+					if(($item_name == $name) && ($bankerID == $item_banker)){
+						return $id;
+					}
+				}
+			}
+			return false;
+		}
+
 		public function get_data($id){
 			return (isset($this->data[$id])) ? $this->data[$id] : array();
 		}

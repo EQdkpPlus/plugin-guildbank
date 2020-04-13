@@ -27,21 +27,29 @@ if (!class_exists('pdh_w_guildbank_items')){
 	class pdh_w_guildbank_items extends pdh_w_generic {
 
 		public function add($intID, $strBanker, $strName, $intRarity, $strType, $intAmount, $intDKP, $intMoney, $intChar, $intSellable=0, $intPool=0, $strSubject='gb_item_added'){
-			$resQuery = $this->db->prepare("INSERT INTO __guildbank_items :p")->set(array(
-				'item_banker'		=> $strBanker,
-				'item_date'			=> $this->time->time,
-				'item_name'			=> $strName,
-				'item_rarity'		=> $intRarity,
-				'item_type'			=> $strType,
-				'item_amount'		=> $intAmount,
-				'item_sellable'		=> $intSellable,
-				'item_multidkppool'	=> $intPool,
-			))->execute();
-			$id = $resQuery->insertId;
-			//($intID, $intBanker, $intChar, $intItem, $intDKP, $intValue, $strSubject)
-			$this->pdh->put('guildbank_transactions', 'add', array(0, $strBanker, $intChar, $id, $intDKP, $intMoney, $strSubject, $intAmount, 1));
-			$this->pdh->enqueue_hook('guildbank_items_update');
-			if ($resQuery) return $id;
+			$old_item	= $this->pdh->get('guildbank_items', 'check_item_avaialbility', array($strBanker, $strName));
+			if($old_item){
+				$current_data	= $this->pdh->get('guildbank_items', 'data', array($old_item));
+				$new_amount		= $intAmount + $current_data['amount'];
+				return $this->update($old_item, $strBanker, $strName, $current_data['rarity'], $current_data['type'], $new_amount, $intDKP, $intMoney, $intChar, $current_data['sellable'], $current_data['multidkppool'], $strSubject);
+			}else {
+				$resQuery = $this->db->prepare("INSERT INTO __guildbank_items :p")->set(array(
+					'item_banker'		=> $strBanker,
+					'item_date'			=> $this->time->time,
+					'item_name'			=> $strName,
+					'item_rarity'		=> $intRarity,
+					'item_type'			=> $strType,
+					'item_amount'		=> $intAmount,
+					'item_sellable'		=> $intSellable,
+					'item_multidkppool'	=> $intPool,
+				))->execute();
+				$id = $resQuery->insertId;
+
+				//($intID, $intBanker, $intChar, $intItem, $intDKP, $intValue, $strSubject)
+				$this->pdh->put('guildbank_transactions', 'add', array(0, $strBanker, $intChar, $id, $intDKP, $intMoney, $strSubject, $intAmount, 1));
+				$this->pdh->enqueue_hook('guildbank_items_update');
+				if ($resQuery) return $id;
+			}
 			return false;
 		}
 
