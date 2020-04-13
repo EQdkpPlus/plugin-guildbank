@@ -39,9 +39,22 @@ class Manage_BankDetails extends page_generic {
 			'perform_payout'	=> array('process' => 'perform_payout',	'csrf'=>true),
 			'addedit'			=> array('process' => 'display_add'),
 			'payout'			=> array('process' => 'display_payout'),
+			'ajax'	=> array(
+				array('process' => 'ajax_check_duplicate',	'value' => 'duplicate'),
+			),
 		);
 		parent::__construct(false, $handler, array('guildbank_items', 'deletename'), null, 'selections[]');
 		$this->process();
+	}
+
+	public function ajax_check_duplicate() {
+		$banker		= $this->in->get('banker', 0);
+		$itemname	= $this->in->get('name', '', 'htmlescape');
+		$result		= $this->pdh->get('guildbank_items', 'check_item_avaialbility', array($banker, $itemname));
+
+		header('Content-type: application/json; charset=utf-8');
+		echo ($result) ? json_encode(array("duplicate"=>true)) : json_encode(array("duplicate"=>false));
+		exit;
 	}
 
 	public function save() {

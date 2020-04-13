@@ -182,6 +182,7 @@ $lang = array(
 	'gb_ta_head_item'				=> 'Gegenstand verwalten',
 	'gb_banker_added'				=> 'Banker hinzugefügt',
 	'gb_money_updated'				=> 'Bankguthaben aktualisiert',
+	'gb_item_duplicate_msg'			=> 'Dieser Gegenstand ist bei diesem Bankier bereits vorhanden. Einige Felder werden deaktiviert, die Anzahl wird zum vorhandenen Gegenstand hinzugefügt.',
 
 	// log import
 	'gb_manage_import'				=> 'Ingame Log importieren',

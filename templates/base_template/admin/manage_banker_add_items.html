@@ -12,6 +12,28 @@ $(function(){
 			$('#header_name').text({L_gb_ta_head_item|jsencode});
 		}
 	}).trigger('change');
+
+	$('#name').change(function(){
+		$.post( "manage_bank_details.php{SID}&ajax=duplicate", { name: $('#name').val(), banker: $('[name=banker]').val() })
+			.done(function(data) {
+				console.log(data.duplicate);
+				if(data.duplicate == true){
+					$('#duplicate_msg').show("600");
+					$('#type').prop("disabled", true);
+					$('.money.input').prop("disabled", true);
+					$('#rarity').prop("disabled", true);
+					$('#dkppool').prop("disabled", true);
+					$('[name=sellable]').prop("disabled", true);
+				}else{
+					$('#duplicate_msg').hide();
+					$('#type').prop("disabled", false);
+					$('.money.input').prop("disabled", false);
+					$('#rarity').prop("disabled", false);
+					$('#dkppool').prop("disabled", false);
+					$('[name=sellable]').prop("disabled", false);
+				}
+			});
+	});
 });
 </script>
 
@@ -21,6 +43,10 @@ $(function(){
 <input type="hidden" name="transaction" value="{TAID}">
 <input type="hidden" name="editmode" value="{EDITMODE}">
 <input type="hidden" name="mode" value="{MODE}">
+
+<div class="infobox infobox-large infobox-blue clearfix" id="duplicate_msg" style="display:none;">
+	<i class="fa fa-info-circle fa-4x pull-left"></i> {L_gb_item_duplicate_msg}
+</div>
 
 <fieldset class="settings mediumsettings">
 	<legend id="header_name">{L_gb_ta_head_item}</legend>

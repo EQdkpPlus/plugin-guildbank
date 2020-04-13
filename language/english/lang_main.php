@@ -160,8 +160,10 @@ $lang = array(
 	"gb_ta_head_item" => 'Manage item',
 	"gb_banker_added" => 'Banker added',
 	'gb_money_updated'	=> 'Updated bank deposits',
-	'gb_manage_import'				=> 'import ingame Log',
+	'gb_item_duplicate_msg'	=> 'This item already exists for this bank account. Some fields are now disabled and this quantity will be added to the existing item.',
+	'gb_manage_import' => 'import ingame Log',
 	'parse_log'	=> 'Log parse',
+
 
 	"gb_header_global" => 'Guild bank settings',
 	"gb_breadcrumb_settings" => 'Guild bank: settings',
