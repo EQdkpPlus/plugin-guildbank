@@ -31,7 +31,9 @@ if (!class_exists('pdh_w_guildbank_items')){
 			if($old_item){
 				$current_data	= $this->pdh->get('guildbank_items', 'data', array($old_item));
 				$new_amount		= $intAmount + $current_data['amount'];
-				return $this->update($old_item, $strBanker, $strName, $current_data['rarity'], $current_data['type'], $new_amount, $intDKP, $intMoney, $intChar, $current_data['sellable'], $current_data['multidkppool'], $strSubject);
+				$current_money	= $this->pdh->get('guildbank_transactions', 'itemvalue', array($old_item));	
+				$current_dkp	= $this->pdh->get('guildbank_transactions', 'itemdkp', array($old_item));	
+				return $this->update($old_item, $strBanker, $strName, $current_data['rarity'], $current_data['type'], $new_amount, $current_dkp, $current_money, $intChar, $current_data['sellable'], $current_data['multidkppool'], $strSubject);
 			}else {
 				$resQuery = $this->db->prepare("INSERT INTO __guildbank_items :p")->set(array(
 					'item_banker'		=> $strBanker,
