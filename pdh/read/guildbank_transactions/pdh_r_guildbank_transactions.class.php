@@ -130,6 +130,10 @@ if (!class_exists('pdh_r_guildbank_transactions')){
 			return array();
 		}
 
+		public function get_transaction_data($id){
+			return (isset($this->data[$id])) ? $this->data[$id] : array();
+		}
+
 		public function get_char($id, $raw=false){
 			if($raw){
 				return (isset($this->data[$id]) && $this->data[$id]['char'] > 0) ? $this->data[$id]['char'] : 0;

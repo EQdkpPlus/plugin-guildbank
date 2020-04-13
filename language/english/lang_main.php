@@ -139,6 +139,7 @@ $lang = array(
 	"gb_title_item" => 'Item management',
 	"gb_item_added" => 'Item added',
 	"gb_item_payout" => 'Item payed out',
+	"gb_item_changed" => "Item updated",
 	"gb_payout_item" => 'Pay out item',
 	"add_transaction" => 'Add transaction',
 	"gb_adjustment_text" => 'Guild bank - Item was purchased ',
@@ -159,6 +160,9 @@ $lang = array(
 	"gb_ta_head_item" => 'Manage item',
 	"gb_banker_added" => 'Banker added',
 	'gb_money_updated'	=> 'Updated bank deposits',
+	'gb_manage_import'				=> 'import ingame Log',
+	'parse_log'	=> 'Log parse',
+
 	"gb_header_global" => 'Guild bank settings',
 	"gb_breadcrumb_settings" => 'Guild bank: settings',
 	"gb_saved" => 'The settings were successfully saved',

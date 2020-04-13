@@ -157,6 +157,7 @@ $lang = array(
 	'gb_title_transaction'			=> 'Transaktionensverwaltung',
 	'gb_title_item'					=> 'Gegenstandsverwaltung',
 	'gb_item_added'					=> 'Gegenstand hinzugefügt',
+	"gb_item_changed" 				=> "Gegenstand bearbeitet",
 	'gb_item_payout'				=> 'Gegenstand verkauft',
 	'gb_payout_item'				=> 'Gegenstand verkaufen',
 	'add_transaction'				=> 'Transaktion hinzufügen',
@@ -181,6 +182,10 @@ $lang = array(
 	'gb_ta_head_item'				=> 'Gegenstand verwalten',
 	'gb_banker_added'				=> 'Banker hinzugefügt',
 	'gb_money_updated'				=> 'Bankguthaben aktualisiert',
+
+	// log import
+	'gb_manage_import'				=> 'Ingame Log importieren',
+	'parse_log'						=> 'Log parsen',
 
 	// settings
 	'gb_header_global'				=> "Gildenbank Einstellungen",

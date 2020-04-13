@@ -113,6 +113,10 @@ if (!class_exists('pdh_r_guildbank_items')){
 			return array();
 		}
 
+		public function get_data($id){
+			return (isset($this->data[$id])) ? $this->data[$id] : array();
+		}
+
 		public function get_date($id){
 			return (isset($this->data[$id]) && $this->data[$id]['date'] > 0) ? $this->data[$id]['date'] : 0;
 		}

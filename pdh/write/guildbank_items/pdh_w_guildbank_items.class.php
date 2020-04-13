@@ -46,6 +46,7 @@ if (!class_exists('pdh_w_guildbank_items')){
 		}
 
 		public function update($intID, $strBanker, $strName, $intRarity, $strType, $intAmount, $intDKP, $intMoney, $intChar, $intSellable=0, $intPool=0, $strSubject=''){
+			$old_item_data	= $this->pdh->get('guildbank_items', 'data', array($intID));
 			$resQuery = $this->db->prepare("UPDATE __guildbank_items :p WHERE item_id=?")->set(array(
 				'item_banker'		=> $strBanker,
 				'item_date'			=> $this->time->time,
@@ -56,7 +57,8 @@ if (!class_exists('pdh_w_guildbank_items')){
 				'item_sellable'		=> $intSellable,
 				'item_multidkppool'	=> $intPool,
 			))->execute($intID);
-			$this->pdh->put('guildbank_transactions', 'update_itemtransaction',	array($intID, $intMoney, $intDKP, $intAmount));
+			$diffQty	= (int)$intAmount - (int)$old_item_data['amount'];
+			$this->pdh->put('guildbank_transactions', 'add', array(0, $strBanker, $intChar, $intID, $intDKP, $intMoney, 'gb_item_added', $diffQty, 1));
 			$this->pdh->enqueue_hook('guildbank_items_update');
 			if ($resQuery) return $intID;
 			return false;
